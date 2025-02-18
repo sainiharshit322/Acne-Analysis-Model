@@ -1,59 +1,75 @@
-# Acne Analysis Using Deep Learning with EfficientNetB0
+# Acne Analysis Model
 
-Excited to share our latest deep learning project on Acne Analysis! 🌟🔍 Leveraging EfficientNetB0, we developed a model to classify facial images into five acne conditions:
+![Acne Analysis](https://img.shields.io/badge/Status-Progress-orange) ![Python](https://img.shields.io/badge/Python-3.9-blue) ![TensorFlow](https://img.shields.io/badge/TensorFlow-2.x-orange) ![License](https://img.shields.io/badge/License-MIT-green)
 
-- Blackheads
-- Cyst
-- Papules
-- Pustules
-- Whiteheads
+This project aims to develop a **deep learning model** capable of analyzing facial images to detect common skin conditions such as **Blackheads**, **Cyst**, **Papules**, **Pustules**, and **Whiteheads**. The system not only identifies these conditions but also provides personalized recommendations for each detected issue, making it a helpful tool for users seeking insights into their skin health.
 
-This system not only identifies these conditions but also provides personalized recommendations for each detected issue, empowering users to better understand their skin health.
+---
 
-## Dataset Overview
+## Overview
 
-- **Total Images:** 4,607 (Train: 2,768 | Validation: 921 | Test: 918)
-- **Preprocessing:** Image resizing (150x150), normalization, augmentation
-- **Augmentation Techniques:** Horizontal flipping, rotation, zooming, brightness adjustment, contrast variation, Gaussian noise
+The **Acne Analysis Model** leverages **EfficientNetB0**, a state-of-the-art deep learning architecture, to classify facial images into five categories of acne conditions. The model is trained on a custom dataset and incorporates advanced techniques like **data augmentation**, **class weights**, and **dropout regularization** to ensure robust performance. Additionally, the project includes a **confusion matrix** and **F1-score analysis** to evaluate model performance.
 
-## Model Training & Implementation
+---
 
-- **Backbone Architecture:** EfficientNetB0 (pre-trained on ImageNet)
-- **Custom Layers:** Dense layers with dropout (up to 60%), L2 regularization, and batch normalization
+## Features
 
-### Optimized Training
+- **Multi-Class Classification**: Detects five types of acne conditions: Blackheads, Cyst, Papules, Pustules, and Whiteheads.
+- **Personalized Recommendations**: Provides tailored skincare advice based on detected conditions.
+- **Data Augmentation**: Enhances the dataset with techniques like flipping, rotation, brightness adjustment, and Gaussian noise.
+- **Class Weights**: Addresses class imbalance during training.
+- **Confusion Matrix & Metrics**: Evaluates model performance using metrics like accuracy, precision, recall, and F1-score.
+- **Custom Image Prediction**: Allows users to upload their own images for real-time predictions.
 
-- **Batch Size:** 32
-- **Optimizer:** Adam with AMSGrad (learning rate = 0.0001)
-- **Loss Function:** Categorical Crossentropy
-- **Callbacks:** Early Stopping, ReduceLROnPlateau, Class Weights
+---
 
-## Results & Performance
+## Dataset
 
-**Final Model Performance:**
+### Dataset Details
+- **Source**: roboflow (Acne Scanner) | Kaggle ([Acne_dataset](https://www.kaggle.com/datasets/anshchauhan248/acne-dataset))
+- **Total Images**: 4,607
+  - Train: 2,768
+  - Validation: 921
+  - Test: 918
+- **Classes**: 5 balanced categories:
+  - Blackheads
+  - Cyst
+  - Papules
+  - Pustules
+  - Whiteheads
+- **Image Size**: Resized to 150x150 pixels for consistency.
 
-- **Test Accuracy:** 96.84%
-- **Test Precision:** 97.05%
-- **Test Recall:** 96.62%
-- **F1-Score (Macro Avg):** 96.74%
+---
 
-### Confusion Matrix Insights
+## Results
 
-The model achieved near-perfect predictions for Pustules and Whiteheads, with 100% confidence in test cases.
+### Performance Metrics
+- **Test Accuracy**: 96.84%
+- **Test Precision**: 97.05%
+- **Test Recall**: 96.62%
+- **F1-Score (Macro Avg)**: 96.74%
 
-## Insights & Takeaways
+### Confusion Matrix
+The confusion matrix shows minimal misclassifications across all classes, with **Pustules** and **Whiteheads** achieving **100% confidence** in test cases.
 
-- **EfficientNetB0** excelled in extracting fine-grained features from facial images.
-- **Data Augmentation** significantly improved generalization despite the small dataset.
-- **Class Weights** effectively mitigated class imbalance, ensuring fair representation.
+---
 
-## Project Credits
+## Credits
 
-Big thanks to my amazing teammates for their contributions:
-- **Ansh Chauhan:** Model creation and optimization
-- **Harshit Saini:** Documentation and testing
-- **Tushar Soni:** Testing and deployment
+This project was developed collaboratively by:
 
-Would love to hear thoughts from the AI and healthcare community! Let’s connect and collaborate to take this project to the next level. 🚀
+- [**Ansh Chauhan**](https://github.com/Anshchauhanhub): Model creation and optimization.
+- [**Tushar Rajput**](https://github.com/iam-tsr): Testing and deployment.
+- [**Harshit Saini**](https://github.com/sainiharshit322): Documentation and testing.
 
-#DeepLearning #MedicalAI #EfficientNet #SkinHealth #AcneAnalysis #HealthcareAI #MachineLearning #ComputerVision
+Special thanks to the open-source community for their tools and libraries that made this project possible.
+
+---
+
+## License
+
+This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) file for more details.
+
+---
+
+Feel free to contribute to this project or reach out with any questions! 🚀

@@ -1,0 +1,9 @@
+streamlit
+streamlit-authenticator
+numpy
+pandas
+scikit-learn
+matplotlib
+seaborn
+plotly
+tensorflow

@@ -107,8 +107,34 @@ if page == "Acne Detection":
         st.write(ACNE_INFO[top_prediction]['cure'])
 
 elif page == "Products":
-    st.title("Recommended Products")
-    
-    with open("templates/products.html", "r", encoding="utf-8") as file:
-        html_code = file.read()
-        st.components.v1.html(html_code, height=600, scrolling=True)
+    st.title("Recommended Skincare Products")
+
+    products = [
+        {
+            "category": "For Blackheads",
+            "image": "images/blackheads.png",
+            "name": "Blackheads Bubble Pour Pack",
+            "link": "https://example.com/Bubblepourpack"
+        },
+        {
+            "category": "For Cystic Acne",
+            "image": "images/download2.jpg",
+            "name": "Benzoyl Peroxide Cream",
+            "link": "https://example.com/benzoyl-peroxide"
+        },
+        {
+            "category": "For Whiteheads",
+            "image": "images/image copy.png",
+            "name": "Retinol Serum",
+            "link": "https://example.com/retinol"
+        }
+    ]
+
+    cols = st.columns(len(products))
+
+    for col, product in zip(cols, products):
+        with col:
+            st.subheader(product["category"])
+            st.image(product["image"], use_container_width=True)
+            st.write(f"**{product['name']}**")
+            st.markdown(f"[Buy Now]({product['link']})", unsafe_allow_html=True)

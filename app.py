@@ -119,7 +119,7 @@ if page == "Acne Detection":
 
     if uploaded_file is not None:
         image = Image.open(uploaded_file)
-        st.image(image, caption='Uploaded Image', use_container_width=True)
+        st.image(image, caption='Uploaded Image')
 
         st.write("Processing...")
         processed_image = preprocess_image(image)
@@ -137,17 +137,14 @@ if page == "Acne Detection":
 
         # Display precautions and cures
         st.subheader("Precautions")
-        st.write("**Precautions:**")
         for precaution in ACNE_INFO[top_prediction]['precautions']:
             st.write(f"- {precaution}")
 
-        # st.write("**Cure:**")
-        # st.write(ACNE_INFO[top_prediction]['cure'])
-
         product_image, buy_link = PRODUCTS[top_prediction]
+        st.subheader("**Recommended Product**")
         product_image = Image.open(product_image)
         product_image = product_image.resize((300, 300))
-        st.image(product_image, use_container_width=False)
+        st.image(product_image)
         st.markdown(f"[Buy Now]({buy_link})", unsafe_allow_html=False)
 
 elif page == "Products":
@@ -186,11 +183,11 @@ elif page == "Products":
         }
     ]
 
-    cols = st.columns(len(products))
-
-    for col, product in zip(cols, products):
-        with col:
+    for product in products:
+        with st.container():
             st.subheader(product["category"])
-            st.image(product["image"], use_container_width=False)
+            image = Image.open(product["image"])
+            resized_image = image.resize((1920, 1080))
+            st.image(resized_image, use_column_width=True)
             st.write(f"**{product['name']}**")
             st.markdown(f"[Buy Now]({product['link']})", unsafe_allow_html=True)

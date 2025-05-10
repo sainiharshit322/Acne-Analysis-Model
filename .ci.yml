@@ -1,0 +1,10 @@
+steps:
+  - name: Install dependencies
+    run: |
+      pip install -r requirements.txt
+  - name: Build Docker image
+    run: |
+      docker build -t my-image .
+  - name: Deploy
+    run: |
+      ./deploy.sh

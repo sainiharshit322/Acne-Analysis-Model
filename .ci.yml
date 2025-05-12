@@ -5,6 +5,9 @@ steps:
   - name: Build Docker image
     run: |
       docker build -t my-image .
+  - name: Echo test
+    run: |
+      echo "Hello from inside the CI!"
   - name: Deploy
     run: |
       ./deploy.sh

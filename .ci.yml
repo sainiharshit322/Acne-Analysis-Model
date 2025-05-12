@@ -1,13 +1,5 @@
 steps:
-  - name: Install dependencies
-    run: |
-      pip install -r requirements.txt
-  - name: Build Docker image
-    run: |
-      docker build -t my-image .
-  - name: Echo test
-    run: |
-      echo "Hello from inside the CI!"
-  - name: Deploy
-    run: |
-      ./deploy.sh
+  - name: Echo message
+    run: echo "Hello from CI"
+  - name: List files
+    run: ls -la
